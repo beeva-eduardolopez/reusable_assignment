@@ -1,13 +1,13 @@
 function shuffle(array) {
- var currentIndex = array.length, temporaryValue, randomIndex;
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+    return array;
 }
 
 
@@ -113,17 +113,28 @@ var library = (function () {
 
         },
 
-        invoke: function (list, methodName, args) { 
+        invoke: function (list, methodName, args) {
             for (var index = 0; index < list.length; index++) {
                 var element = list[index];
-                 methodName.apply(element, list); 
-            }   
+                methodName.apply(element, list);
+            }
         },
 
-        sortBy: function (list, iterator) { },
+        sortBy: function (list, iterator) {
+            var final = [];
+            for (var index = 0; index < list.length; index++) {
+                var element = list[index];
+                if (element < iterator) return -1;
+                if (element > iterator) return 1;
+                return 0;
+
+            }
+        },
 
         // Objects --- Complete Functions Below
-        extend: function (obj) { },
+        extend: function (obj) {
+            return Object.getOwnPropertyNames(obj);
+        },
 
         defaults: function (obj) { },
 
@@ -132,11 +143,39 @@ var library = (function () {
             return n === undefined ? array[0] : array.slice(0, n);
         },
 
-        last: function (array, n) { },
+        last: function (array, n) {
+            return n === undefined ? array[array.length] : array.slice(array.length, n);
+        },
 
-        indexOf: function (array, target) { },
+        indexOf: function (array, target) {
+            for (var index = 0; index < array.length; index++) {
+                var element = array[index];
+                if (element == target) {
+                    return index;
+                } else {
+                    return -1
+                }
 
-        uniq: function (array) { },
+            }
+        },
+
+        uniq: function (array) {
+            var arr = [];
+            var exist = false;
+            for (var index = 0; index < array.length; index++) {
+                var element = array[index];
+                for (var i = 0; i < arr.length; i++) {
+                    var ele = arr[i];
+                    if (ele === arr[i]) {
+                        exist = true;
+                    }
+                }
+                if (exist !== true) {
+                    arr.push(element)
+                }
+            }
+            console.log(arr);
+        },
 
         // Advanced Arrays --- Complete Functions Below
         zip: function () { },
