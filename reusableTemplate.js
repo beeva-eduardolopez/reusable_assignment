@@ -1,10 +1,23 @@
 var library = (function(){
+    
 	return {
 		// Utility --- Complete Functions Below
-		identity : function(val) {},
+		identity : function(val) {
+            return val;
+            
+        },
 
 		// Collections --- Complete Functions Below
-		each : function(list, iterator) {},
+		each : function(list, iterator) {
+            var arr = []; 
+            for (var index = 0; index < list.length; index++) {
+                var element = list[index];
+                var insert = [];
+                insert.push(element,index,list);
+                arr.push(insert);       
+            }
+
+        },
 
 		filter : function(list, test) {},
 
