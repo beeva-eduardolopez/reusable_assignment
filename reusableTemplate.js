@@ -152,11 +152,9 @@ var library = (function () {
                 var element = array[index];
                 if (element == target) {
                     return index;
-                } else {
-                    return -1
-                }
-
+                } 
             }
+            return -1
         },
 
         uniq: function (array) {
@@ -166,7 +164,7 @@ var library = (function () {
                 var element = array[index];
                 for (var i = 0; i < arr.length; i++) {
                     var ele = arr[i];
-                    if (ele === arr[i]) {
+                    if (element === arr[i]) {
                         exist = true;
                     }
                 }
@@ -174,13 +172,21 @@ var library = (function () {
                     arr.push(element)
                 }
             }
-            console.log(arr);
         },
 
         // Advanced Arrays --- Complete Functions Below
-        zip: function () { },
+        zip: function () {
 
-        flatten: function (nestedArray, result) { },
+        },
+
+        flatten: function (nestedArray, result) {
+            result = [];
+            for (var i = 0; i < nestedArray.length; i++) {
+                for (var j = 0; j < nestedArray[i].length; j++) {
+                    result.push(nestedArray[i][j]);
+                }
+            }
+        },
 
         intersection: function () { },
 
