@@ -162,16 +162,19 @@ var library = (function () {
             var exist = false;
             for (var index = 0; index < array.length; index++) {
                 var element = array[index];
-                for (var i = 0; i < arr.length; i++) {
-                    var ele = arr[i];
-                    if (element === arr[i]) {
+                for (var j = 0; j < arr.length; j++) {
+                    exist = false;
+                    var arrEle = arr[j];
+                      if (element === arrEle) {
                         exist = true;
-                    }
-                }
+                        break;
+                    } 
+                } 
                 if (exist !== true) {
                     arr.push(element)
                 }
             }
+            return arr;
         },
 
         // Advanced Arrays --- Complete Functions Below
