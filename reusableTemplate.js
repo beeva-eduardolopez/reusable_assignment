@@ -193,7 +193,24 @@ var library = (function () {
             return result;
         },
 
-        intersection: function () { },
+        intersection: function () { 
+            var result = [];
+            var land = ['bird', 'beaver', 'platypus'];
+            var water = ['platypus', 'fish', 'whale'];
+            for (var i = 0; i < land.length; i++) {
+                var lElement = land[i];
+                for (var j = 0; j < water.length; j++) {
+                    var wElement = water[j];
+                    if(lElement===wElement){
+                        result.push(lElement);
+                    }
+                    
+                }
+                
+            }
+            return result;
+            
+        },
 
         difference: function (array) { },
 
