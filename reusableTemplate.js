@@ -51,12 +51,12 @@ var library = (function () {
         },
 
         map: function (list, iterator) {
-           var arr = [];
+            var arr = [];
             for (var i = 0; i < list.length; i++) {
-               arr.push(iterator(list[i], i, list));
+                arr.push(iterator(list[i], i, list));
             }
-             
-            return arr; 
+
+            return arr;
         },
 
         pluck: function (list, key) {
@@ -65,30 +65,30 @@ var library = (function () {
             });
         },
         reduce: function (list, iterator, accumulator) {
-            list.forEach(function (iterator) {
-                accumulator = accumulator + iterator;
-            }, this);
+            accumulator = 0;
+            for (var i = 0; i < list.length; i++) {
+                accumulator = iterator(list[i], i, list);
+            }
             return accumulator;
         },
 
         every: function (list, iterator) {
-            list.forEach(function (element) {
-                if (iterator(element)) {
+            for (var i = 0; i < list.length; i++) {
+                if (iterator(list[i])) {
                     return false;
                 }
-            }, this);
-
+            }
             return true;
         },
 
         some: function (list, iterator) {
-            list.forEach(function (element) {
-                if (iterator(element)) {
+            for (var i = 0; i < list.length; i++) {
+                if (iterator(list[i])) {
                     return true;
                 }
-            }, this);
-
+            }
             return false;
+
         },
 
         contains: function (list, target) {
