@@ -51,11 +51,12 @@ var library = (function () {
         },
 
         map: function (list, iterator) {
-            var arr = [];
-            list.forEach(function (iterator) {
-                arr.push(iterator);
-            }, this);
-            return arr;
+           var arr = [];
+            for (var i = 0; i < list.length; i++) {
+               arr.push(iterator(list[i], i, list));
+            }
+             
+            return arr; 
         },
 
         pluck: function (list, key) {
