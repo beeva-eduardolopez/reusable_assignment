@@ -22,14 +22,9 @@ var library = (function () {
 
         // Collections --- Complete Functions Below
         each: function (list, iterator) {
-            var arr = [];
             for (var index = 0; index < list.length; index++) {
-                var element = list[index];
-                var insert = [];
-                insert.push(element, index, list);
-                arr.push(insert);
+                iterator(list[index], index, list);
             }
-            return arr;
 
         },
 
@@ -153,7 +148,7 @@ var library = (function () {
                 var element = array[index];
                 if (element == target) {
                     return index;
-                } 
+                }
             }
             return -1
         },
@@ -166,11 +161,11 @@ var library = (function () {
                 for (var j = 0; j < arr.length; j++) {
                     exist = false;
                     var arrEle = arr[j];
-                      if (element === arrEle) {
+                    if (element === arrEle) {
                         exist = true;
                         break;
-                    } 
-                } 
+                    }
+                }
                 if (exist !== true) {
                     arr.push(element)
                 }
@@ -187,7 +182,7 @@ var library = (function () {
                 var first = one[index];
                 var second = two[index];
                 var thrid = three[index];
-                arr.push(first,second,thrid);
+                arr.push(first, second, thrid);
                 result.push(arr);
             }
             return result;
@@ -203,7 +198,7 @@ var library = (function () {
             return result;
         },
 
-        intersection: function () { 
+        intersection: function () {
             var result = [];
             var land = ['bird', 'beaver', 'platypus'];
             var water = ['platypus', 'fish', 'whale'];
@@ -211,15 +206,15 @@ var library = (function () {
                 var lElement = land[i];
                 for (var j = 0; j < water.length; j++) {
                     var wElement = water[j];
-                    if(lElement===wElement){
+                    if (lElement === wElement) {
                         result.push(lElement);
                     }
-                    
+
                 }
-                
+
             }
             return result;
-            
+
         },
 
         difference: function (array) { },
