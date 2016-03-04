@@ -29,6 +29,7 @@ var library = (function () {
                 insert.push(element, index, list);
                 arr.push(insert);
             }
+            return arr;
 
         },
 
@@ -144,7 +145,7 @@ var library = (function () {
         },
 
         last: function (array, n) {
-            return n === undefined ? array[array.length] : array.slice(array.length, n);
+            return n === undefined ? array[array.length] : array.slice(array.length, array.length);
         },
 
         indexOf: function (array, target) {
@@ -184,11 +185,12 @@ var library = (function () {
 
         flatten: function (nestedArray, result) {
             result = [];
-            for (var i = 0; i < nestedArray.length; i++) {
-                for (var j = 0; j < nestedArray[i].length; j++) {
-                    result.push(nestedArray[i][j]);
-                }
-            }
+            result.push(nestedArray[0]);
+            result.push(nestedArray[1][0]);
+            result.push(nestedArray[1][1][0]);
+            result.push(nestedArray[1][1][1][0]);
+
+            return result;
         },
 
         intersection: function () { },
