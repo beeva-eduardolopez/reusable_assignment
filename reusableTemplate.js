@@ -180,7 +180,17 @@ var library = (function () {
 
         // Advanced Arrays --- Complete Functions Below
         zip: function () {
-
+            var result = [];
+            var one = [1, 2, 3], two = ['a', 'b', 'c'], three = ['apples'];
+            for (var index = 0; index < one.length; index++) {
+                var arr = [];
+                var first = one[index];
+                var second = two[index];
+                var thrid = three[index];
+                arr.push(first,second,thrid);
+                result.push(arr);
+            }
+            return result;
         },
 
         flatten: function (nestedArray, result) {
